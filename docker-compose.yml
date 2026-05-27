@@ -1,0 +1,13 @@
+services:
+  web-app:
+    build: ./app
+    ports:
+      - "8098:8098"
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+  client:
+    build: ./client
+    depends_on:
+      - web-app
